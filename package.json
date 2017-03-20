@@ -2,8 +2,12 @@
   "name": "plate-it-server",
   "version": "1.0.0",
   "scripts": {
-    "start": "node server/server.js",
+    "start": "concurrently --kill-others \"npm run server\" \"npm run dev\"",
+    "server": "node server/server.js",
     "dev": "cd client && npm start",
     "test": "cd client && npm test"
+  },
+  "devDependencies": {
+    "concurrently": "^3.4.0"
   }
 }
