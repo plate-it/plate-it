@@ -8,6 +8,14 @@
     "test": "cd client && npm test"
   },
   "devDependencies": {
-    "concurrently": "^3.4.0"
+    "concurrently": "^3.4.0",
+    "eslint": "^3.18.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.2"
+  },
+  "dependencies": {
+    "express": "^4.15.2"
   }
 }
