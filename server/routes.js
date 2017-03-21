@@ -12,5 +12,6 @@ module.exports = (app) => {
   // app.patch('/api/users/:username/books/:bookname', userController.updateBook);
 
   app.post('/api/users/:username/recipes', recipeController.createOneRecipe);
+  app.get('/api/recipes', recipeController.getAllRecipes);
   app.get('/api/recipes/:recipeid', recipeController.getOneRecipe);
 };
