@@ -17,17 +17,17 @@ module.exports = {
       }
     });
   },
-  // addBook: (req, res) => {
-  //   const bookName = req.body.bookName;
-  //   const recipeIds = req.body.recipeIds;
-  //   const username = req.body.username;
-  //   User.findOne({ username })
-  //   .exec((err, userProfile) => {
-  //     if (err) {
-  //       res.send(err);
-  //     } else {
-  //       const newBook = new
-  //     }
-  //   });
-  // },
+  addBook: (req, res) => {
+    const bookName = req.body.bookName;
+    const recipeIds = req.body.recipeIds;
+    const username = req.body.username;
+    User.findOne({ username })
+    .exec((err, userProfile) => {
+      if (err) {
+        res.send(err);
+      } else {
+        const newBook = new
+      }
+    });
+  },
 };
