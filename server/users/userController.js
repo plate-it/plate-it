@@ -9,9 +9,9 @@ module.exports = {
     });
     newUser.save((err, user) => {
       if (err) {
-        res.send(err);
+        res.status(500).send(err);
       } else {
-        res.send(user);
+        res.status(201).send(user);
       }
     });
   },
@@ -48,9 +48,9 @@ module.exports = {
         user.books.push(newBook);
         user.save((err2, savedUser) => {
           if (err2) {
-            res.send(err2);
+            res.status(500).send(err2);
           } else {
-            res.send(savedUser);
+            res.status(201).send(savedUser);
           }
         });
       }
@@ -73,7 +73,7 @@ module.exports = {
           }
         }
         if (!match) {
-          res.status(500).send('Book not found');
+          res.status(500).send({ err: 'Book not found' });
         }
       }
     });

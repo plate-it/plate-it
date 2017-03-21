@@ -25,6 +25,12 @@ module.exports = {
       }
     });
   },
+  getAllRecipes: (req, res) => {
+    Recipe.find({})
+    .exec((err, recipes) => {
+      res.status(200).send(recipes);
+    });
+  },
   getOneRecipe: (req, res) => {
     const id = req.params.recipeid;
     Recipe.findOne({ _id: id })
