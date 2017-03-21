@@ -56,7 +56,26 @@ module.exports = {
       }
     });
   },
-  updateBook: (req, res) => {
-
+  getOneBook: (req, res) => {
+    const bookName = req.params.bookname;
+    const username = req.params.username;
+    User.findOne({ username })
+    .exec((err, user) => {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        let match = false;
+        for (let i = 0; i < user.books.length; i += 1) {
+          if (bookName === user.books[i].bookName) {
+            res.status(200).send(user.books[i]);
+            match = true;
+            break;
+          }
+        }
+        if (!match) {
+          res.status(500).send('Book not found');
+        }
+      }
+    });
   },
 };
