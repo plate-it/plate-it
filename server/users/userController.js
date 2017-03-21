@@ -46,9 +46,9 @@ module.exports = {
         res.send(err);
       } else {
         user.books.push(newBook);
-        user.save((err, savedUser) => {
-          if (err) {
-            res.send(err);
+        user.save((err2, savedUser) => {
+          if (err2) {
+            res.send(err2);
           } else {
             res.send(savedUser);
           }
