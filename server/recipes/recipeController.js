@@ -26,6 +26,14 @@ module.exports = {
     });
   },
   getOneRecipe: (req, res) => {
-
+    const id = req.params.recipeid;
+    Recipe.findOne({ _id: id })
+    .exec((err, recipe) => {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        res.status(200).send(recipe);
+      }
+    });
   },
 };
