@@ -15,7 +15,7 @@ module.exports = {
       }
     });
   },
-  getOne: (req, res) => {
+  getOneUser: (req, res) => {
     const username = req.params.username;
     User.find({ username })
     .exec((err, user) => {
@@ -55,5 +55,8 @@ module.exports = {
         });
       }
     });
+  },
+  updateBook: (req, res) => {
+
   },
 };
