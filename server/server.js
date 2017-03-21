@@ -6,6 +6,13 @@ const app = express();
 
 app.set('port', (process.env.PORT || 3001));
 
+
+//Middlewares
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+
+//Database connections
 const uri = 'mongodb://localhost/plateit';
 
 mongoose.connect(uri);
@@ -16,10 +23,11 @@ db.once('open', () => {
   console.log('Connected to Mongoose');
 });
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
 
+//http Routes
 require('./routes.js')(app);
+
+
 
 app.get('/test', (req, res) => {
   res.send('hello world');
