@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   username: { type: String },
   books: [new Schema({
-    bookName: String,
+    bookname: String,
     recipeIds: [Number],
   })],
 });

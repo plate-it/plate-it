@@ -3,7 +3,7 @@ const recipeController = require('./recipes/recipeController.js');
 
 
 module.exports = (app) => {
-  app.get('/api/users', userController.getAll);
+  app.get('/api/users', userController.getAllUsers);
   app.get('/api/users/:username', userController.getOneUser);
   app.post('/api/signup', userController.signup);
 
@@ -11,5 +11,6 @@ module.exports = (app) => {
   app.get('/api/users/:username/books/:bookname', userController.getOneBook);
   // app.patch('/api/users/:username/books/:bookname', userController.updateBook);
 
-  app.post('/api/users/:username/recipes', recipeController.createOne);
+  app.post('/api/users/:username/recipes', recipeController.createOneRecipe);
+  app.get('/api/users/:username/recipes/:recipe', recipeController.getOne);
 };

@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const RecipeSchema = new Schema({
-  recipeName: { type: String },
+  recipename: { type: String },
   username: { type: String },
   ingredients: [String],
   directions: [String],

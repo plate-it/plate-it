@@ -26,18 +26,18 @@ module.exports = {
       }
     });
   },
-  getAll: (req, res) => {
+  getAllUsers: (req, res) => {
     User.find({})
     .exec((err, users) => {
       res.status(200).send(users);
     });
   },
   createBook: (req, res) => {
-    const bookName = req.body.bookName;
+    const bookname = req.body.bookname;
     const recipeIds = JSON.parse(req.body.recipeIds);
     const username = req.params.username;
     const newBook = {
-      bookName,
+      bookname,
       recipeIds,
     };
     User.findOne({ username })
@@ -57,7 +57,7 @@ module.exports = {
     });
   },
   getOneBook: (req, res) => {
-    const bookName = req.params.bookname;
+    const bookname = req.params.bookname;
     const username = req.params.username;
     User.findOne({ username })
     .exec((err, user) => {
@@ -66,7 +66,7 @@ module.exports = {
       } else {
         let match = false;
         for (let i = 0; i < user.books.length; i += 1) {
-          if (bookName === user.books[i].bookName) {
+          if (bookname === user.books[i].bookname) {
             res.status(200).send(user.books[i]);
             match = true;
             break;
