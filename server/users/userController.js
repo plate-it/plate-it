@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 
 module.exports = {
   signup: (req, res) => {
-    console.log('BODY HERE', req.body)
     const username = req.body.username;
     const newUser = new User({
       username,
