@@ -1,7 +1,7 @@
 const Recipe = require('./recipeModel');
 
 module.exports = {
-  createOne: (req, res) => {
+  createOneRecipe: (req, res) => {
     const parsedReq = req.body;
     const username = req.params.username;
     const recipeName = parsedReq.recipeName;
@@ -24,5 +24,8 @@ module.exports = {
         res.status(201).send(recipe);
       }
     });
+  },
+  getOneRecipe: (req, res) => {
+
   },
 };
