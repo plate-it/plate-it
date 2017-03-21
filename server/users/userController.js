@@ -1,5 +1,4 @@
 const User = require('./userModel');
-const bodyParser = require('body-parser');
 
 module.exports = {
   signup: (req, res) => {
@@ -16,16 +15,27 @@ module.exports = {
       }
     });
   },
+  getOne: (req, res) => {
+    const username = req.params.username;
+    User.find({ username })
+    .exec((err, user) => {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        res.status(200).send(user);
+      }
+    });
+  },
   getAll: (req, res) => {
     User.find({})
     .exec((err, users) => {
       res.status(200).send(users);
     });
   },
-  addBook: (req, res) => {
+  createBook: (req, res) => {
     const bookName = req.body.bookName;
     const recipeIds = JSON.parse(req.body.recipeIds);
-    const username = req.body.username;
+    const username = req.params.username;
     const newBook = {
       bookName,
       recipeIds,
