@@ -5,5 +5,5 @@ const bodyParser = require('body-parser');
 module.exports = (app) => {
   app.post('/api/signup', userController.signup);
   app.get('/api/users', userController.getAll);
-  app.post('/api/addbook', userController.addBook);
+  app.post('/api/users/:username/books', userController.createBook);
 }
