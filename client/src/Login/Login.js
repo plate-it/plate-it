@@ -1,6 +1,8 @@
 import React, {PropTypes as T} from 'react';
 import AuthService from '../utils/AuthService';
 
+// component should accept an auth object (instance of AuthService) as a prop
+
 export class Login extends React.Component {
   static propTypes = {
     location: T.object,
