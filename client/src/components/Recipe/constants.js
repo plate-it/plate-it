@@ -1,0 +1,1 @@
+export const PENDING_RECIPE = 'PENDING_RECIPE';
