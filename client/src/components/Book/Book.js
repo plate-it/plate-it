@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import RecipeListItem from 'RecipeListItem';
 
-export default class RecipeList extends React.Component {
+export default class Book extends React.Component {
   constructor(props) {
     super (props);
     this.state = {

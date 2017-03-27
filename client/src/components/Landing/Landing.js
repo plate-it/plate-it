@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import RecipeListItem from 'RecipeListItem';
+import Navigation from 'Navigation';
 
-export default class RecipeList extends React.Component {
+export default class Landing extends React.Component {
   constructor(props) {
     super (props);
     this.state = {
