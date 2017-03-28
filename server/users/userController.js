@@ -11,7 +11,7 @@ module.exports = {
       if (err) {
         res.status(500).send(err);
       } else {
-        res.status(201).send(user);
+        res.status(200).send(user);
       }
     });
   },
