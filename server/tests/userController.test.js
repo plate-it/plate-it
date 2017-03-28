@@ -16,6 +16,7 @@ describe('User controller', () => {
       stubbedFindOne.returns({ exec: (cb) => {
         cb(null, { username: 'bob' });
       } });
+
       request(app)
         .get('/api/users/bob')
         .end((err, res) => {
@@ -27,6 +28,11 @@ describe('User controller', () => {
     });
 
     it('sends error for user that does not exist', (done) => {
+      const stubbedFindOne = sinon.stub(User, 'findOne');
+      stubbedFindOne.returns({ exec: (cb) => {
+        cb(null, null);
+      } });
+
       request(app)
         .get('/api/users/noone')
         .end((err, res) => {
@@ -34,6 +40,7 @@ describe('User controller', () => {
           expect(res.body.error).to.equal('User not found');
           done();
         });
+      User.findOne.restore();
     });
   });
 });
