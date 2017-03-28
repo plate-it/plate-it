@@ -22,7 +22,17 @@ describe('User controller', () => {
         .get('/api/users/bob')
         .end((err, res) => {
           expect(res.status).to.equal(200);
-          expect(res.body[0].username).to.equal('bob');
+          expect(res.body.username).to.equal('bob');
+          done();
+        });
+    });
+
+    it('sends error for user that does not exist', (done) => {
+      request(app)
+        .get('/api/users/noone')
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body.error).to.equal('User not found');
           done();
         });
     });
