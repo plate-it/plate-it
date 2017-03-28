@@ -2,6 +2,7 @@
 const expect = require('chai').expect;
 const app = require('../server.js');
 const request = require('supertest');
+const sinon = require('sinon');
 const User = require('../users/userModel');
 
 describe('User controller', () => {
@@ -10,14 +11,11 @@ describe('User controller', () => {
   });
 
   describe('/api/users/:username', () => {
-    beforeEach((done) => {
-      User.remove({}, () => {
-        new User({ username: 'bob' }).save();
-        done();
-      });
-    });
-
     it('responds with correct user', (done) => {
+      const stubbedFindOne = sinon.stub(User, 'findOne');
+      stubbedFindOne.returns({ exec: (cb) => {
+        cb(null, { username: 'bob' });
+      } });
       request(app)
         .get('/api/users/bob')
         .end((err, res) => {
@@ -25,6 +23,7 @@ describe('User controller', () => {
           expect(res.body.username).to.equal('bob');
           done();
         });
+      User.findOne.restore();
     });
 
     it('sends error for user that does not exist', (done) => {
