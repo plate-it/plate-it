@@ -8,17 +8,25 @@ const User = require('../users/userModel');
 
 describe('User controller', () => {
   describe('/api/signup', () => {
-    afterEach(() => {
-      User.prototype.save.restore();
-    });
-
     it('saves a valid user', (done) => {
       sinon.stub(User.prototype, 'save').yieldsAsync(null, { username: 'bob' });
       request(app)
         .post('/api/signup')
         .end((err, res) => {
           expect(res.status).to.equal(200);
-          expect(res.body.username).to.equal('bob');
+          expect(res.body.user.username).to.equal('bob');
+          User.prototype.save.restore();
+          done();
+        });
+    });
+
+    it('does not save an invalid user', (done) => {
+      request(app)
+        .post('/api/signup')
+        .send({ invalidProp: true })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body.error.message).to.exist;
           done();
         });
     });
