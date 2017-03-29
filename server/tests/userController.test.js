@@ -3,6 +3,7 @@ const expect = require('chai').expect;
 const app = require('../server.js');
 const request = require('supertest');
 const sinon = require('sinon');
+const mongoose = require('mongoose');
 const User = require('../users/userModel');
 
 describe('User controller', () => {
@@ -11,12 +12,12 @@ describe('User controller', () => {
   });
 
   describe('/api/users/:username', () => {
-    it('responds with correct user', (done) => {
-      const stubbedFindOne = sinon.stub(User, 'findOne');
-      stubbedFindOne.returns({ exec: (cb) => {
-        cb(null, { username: 'bob' });
-      } });
+    afterEach(() => {
+      mongoose.Query.prototype.exec.restore();
+    });
 
+    it('responds with correct user', (done) => {
+      sinon.stub(mongoose.Query.prototype, 'exec').yieldsAsync(null, { username: 'bob' });
       request(app)
         .get('/api/users/bob')
         .end((err, res) => {
@@ -24,15 +25,10 @@ describe('User controller', () => {
           expect(res.body.username).to.equal('bob');
           done();
         });
-      User.findOne.restore();
     });
 
     it('sends error for user that does not exist', (done) => {
-      const stubbedFindOne = sinon.stub(User, 'findOne');
-      stubbedFindOne.returns({ exec: (cb) => {
-        cb(null, null);
-      } });
-
+      sinon.stub(mongoose.Query.prototype, 'exec').yieldsAsync(null, null);
       request(app)
         .get('/api/users/noone')
         .end((err, res) => {
@@ -40,7 +36,6 @@ describe('User controller', () => {
           expect(res.body.error).to.equal('User not found');
           done();
         });
-      User.findOne.restore();
     });
   });
 });
