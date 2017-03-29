@@ -7,6 +7,7 @@ module.exports = {
       username,
       books: [],
     });
+
     newUser.save((err, user) => {
       if (err) {
         res.status(500).send(err);
@@ -17,6 +18,7 @@ module.exports = {
   },
   getOneUser: (req, res) => {
     const { username } = req.params;
+
     User.findOne({ username })
     .exec((err, user) => {
       if (err) { res.status(500).send({ error: err }); }

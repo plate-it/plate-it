@@ -8,7 +8,20 @@ const User = require('../users/userModel');
 
 describe('User controller', () => {
   describe('/api/signup', () => {
+    afterEach(() => {
+      User.prototype.save.restore();
+    });
 
+    it('saves a valid user', (done) => {
+      sinon.stub(User.prototype, 'save').yieldsAsync(null, { username: 'bob' });
+      request(app)
+        .post('/api/signup')
+        .end((err, res) => {
+          expect(res.status).to.equal(200);
+          expect(res.body.username).to.equal('bob');
+          done();
+        });
+    });
   });
 
   describe('/api/users/:username', () => {
