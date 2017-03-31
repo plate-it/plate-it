@@ -7,22 +7,25 @@ module.exports = {
       username,
       books: [],
     });
+
     newUser.save((err, user) => {
       if (err) {
-        res.status(500).send(err);
+        res.status(400).send({ error: err });
       } else {
-        res.status(201).send(user);
+        res.status(200).send({ user });
       }
     });
   },
   getOneUser: (req, res) => {
-    const username = req.params.username;
-    User.find({ username })
+    const { username } = req.params;
+
+    User.findOne({ username })
     .exec((err, user) => {
-      if (err) {
-        res.status(500).send(err);
-      } else {
+      if (err) { res.status(500).send({ error: err }); }
+      if (user) {
         res.status(200).send(user);
+      } else {
+        res.status(400).send({ error: 'User not found' });
       }
     });
   },
