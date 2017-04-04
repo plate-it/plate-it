@@ -1,5 +1,5 @@
 import React, {PropTypes as T} from 'react';
-import AuthService from '../utils/AuthService';
+import AuthService from 'utils/AuthService';
 
 // component should accept an auth object (instance of AuthService) as a prop
 

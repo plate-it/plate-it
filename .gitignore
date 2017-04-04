@@ -1,6 +1,2 @@
-<<<<<<< HEAD
 node_modules/
 npm-debug.log
-=======
-node_modules/
->>>>>>> Create gitignore file for node_modules
