@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 
+// Auth0 API Keys -- file part of .gitignore
+import AUTH0 from './config/auth0';
+
 ReactDOM.render(
-  <App clientId={'2s7rH2c2l8PyUC0pt21U1dCFRX0ETrHb'} domain={'aautem.auth0.com'} />,
+  <App clientId={AUTH0.CLIENT_ID} domain={AUTH0.DOMAIN} />,
   document.getElementById('root')
 );

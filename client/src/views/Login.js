@@ -1,6 +1,6 @@
 import React from 'react';
 
-var Login = (props) => {
+let Login = (props) => {
   console.log('*** Login Props ***', props);
   return (
     <div>

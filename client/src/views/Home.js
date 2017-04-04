@@ -1,6 +1,6 @@
 import React from 'react';
 
-var Home = (props) => {
+let Home = (props) => {
   console.log('*** Home Props ***', props);
   return (
     <div>

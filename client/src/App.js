@@ -22,6 +22,13 @@ class App extends Component {
         responseType: 'token'
       }
     });
+
+    // Check if ID Token already on local storage
+    var token = this.getToken();
+    if (token) {
+      this._doAuthentication.call(this, {idToken: token});
+    }
+
     // add callback for lock 'authenticated' event
     this.lock.on('authenticated', this._doAuthentication.bind(this));
   }
