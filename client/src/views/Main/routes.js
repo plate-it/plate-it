@@ -1,11 +1,12 @@
 import React from 'react';
 import {Route, IndexRedirect} from 'react-router';
-import AuthService from 'utils/AuthService';
+import AuthService from './../../utils/AuthService';
 import Container from './Container';
 import Home from './Home/Home';
 import Login from './Login/Login';
 
-const auth = new AuthService('YOUR_CLIENT_ID', 'YOUR_AUTH0_DOMAIN');
+const auth = new AuthService('2s7rH2c2l8PyUC0pt21U1dCFRX0ETrHb', 'aautem.auth0.com');
+console.log('*** Routes Auth ***', auth);
 
 // validate authentication for private routes
 const requireAuth = (nextState, replace) => {

@@ -2,12 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
-import {browserHistory} from 'react-router';
-import makeRoutes from './views/Main/routes';
-
-const routes = makeRoutes();
 
 ReactDOM.render(
-  <App history={browserHistory} routes={routes} />,
+  <App clientId={'2s7rH2c2l8PyUC0pt21U1dCFRX0ETrHb'} domain={'aautem.auth0.com'} />,
   document.getElementById('root')
 );

@@ -14,7 +14,7 @@ export class Container extends React.Component {
     return (
       <div>
         <h2>
-          <img src="https://cdn.auth0.com/styleguide/1.0.0/img/badge.svg" />
+          <img src="https://cdn.auth0.com/styleguide/1.0.0/img/badge.svg" alt="plate-it" />
         </h2>
         {children}
       </div>
