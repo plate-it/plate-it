@@ -9,6 +9,9 @@
 # production
 /build
 
+# keys
+src/config/auth0.js
+
 # misc
 .DS_Store
 .env
