@@ -59,4 +59,19 @@ describe('User controller', () => {
         });
     });
   });
+
+  describe('/api/users', () => {
+    it('returns all the users in db', (done) => {
+      const users = [{ username: 'bob', books: [] }, [{ username: 'cory', books: [] }]];
+      sinon.stub(mongoose.Query.prototype, 'exec').yieldsAsync(null, users);
+
+      request(app)
+        .get('/api/users')
+        .end((req, res) => {
+          expect(res.status).to.equal(200);
+          expect(res.body).to.eql(users);
+          done();
+        });
+    });
+  });
 });

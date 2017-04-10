@@ -4,9 +4,9 @@ import auth from '../components/Auth/reducers';
 
 const appReducer = combineReducers({
   auth,
+  routing: routerReducer,
 });
 
-export default (state, action) => {
+export default (state, action) =>
+  appReducer(state, action);
 
-  return appReducer(state, action);
-};

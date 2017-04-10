@@ -32,6 +32,9 @@ module.exports = {
   getAllUsers: (req, res) => {
     User.find({})
     .exec((err, users) => {
+      if (err) {
+        res.status(500).send('Something went wrong!');
+      }
       res.status(200).send(users);
     });
   },
