@@ -11,7 +11,7 @@ export default class Recipe extends React.Component {
 
   render () {
     return (
-
+      <div>Recipes</div>
 
     )
   }
