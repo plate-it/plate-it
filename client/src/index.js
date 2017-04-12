@@ -7,12 +7,7 @@ import Root from './Root'
 // Auth0 API Keys -- file part of .gitignore
 import AUTH0 from './config/auth0';
 
-const appElement = document.getElementById('root');
-
-ReactDOM.render(
-  <Root />,
-  appElement,
-);
+ReactDOM.render(<Root />, document.getElementById('root'));
 
 
 // Alex's work here:

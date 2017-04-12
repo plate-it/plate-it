@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Navigation from 'Navigation';
+import Navigation from './../Navigation/Navigation.js';
 
 export default class Landing extends React.Component {
   constructor(props) {
@@ -12,7 +12,9 @@ export default class Landing extends React.Component {
 
   render () {
     return (
-
+      <div>
+        <Navigation />
+      </div>
 
     )
   }
