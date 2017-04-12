@@ -5,7 +5,7 @@ export default class Instructions extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      editorState: EditorState.createEmpty(),
+      editorState: EditorState.createEmpty()
     };
 
     this.onChange = (state) => this.setState({editorState: state});

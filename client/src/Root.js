@@ -5,7 +5,7 @@ import configureStore from './configureStore';
 import { syncHistoryWithStore } from 'react-router-redux';
 import Recipe from './components/Recipe/Recipe';
 import Landing from './components/Landing/Landing.js';
-// import Collection from './components/Collection/Collection.js';
+import Collections from './components/Collections/Collections.js';
 
 const store = configureStore();
 const history = syncHistoryWithStore(browserHistory, store);
@@ -15,6 +15,7 @@ const Root = () =>
     <Router history={history}>
       <Route path="/" component={Landing} />
       <Route path="/recipe" component={Recipe} />
+      <Route path='collections' component={Collections} />
     </Router>
   </Provider>;
 
