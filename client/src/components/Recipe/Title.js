@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Editor, EditorState } from 'draft-js'
+import React from 'react';
+import { Editor, EditorState, convertFromRaw, convertToRaw } from 'draft-js';
 
 export default class Title extends React.Component {
   constructor (props) {
@@ -9,8 +9,16 @@ export default class Title extends React.Component {
       descriptionState: EditorState.createEmpty(),
     };
 
-    this.titleChange = (state) => this.setState({titleState: state});
-    this.descriptionChange = (state) => this.setState({descriptionState: state});
+    this.titleChange = (state) => {
+      this.setState({titleState: state});
+      console.log(state);
+      console.log(convertToRaw(this.state.titleState.getCurrentContent()));
+    }
+    this.descriptionChange = (state) => {
+      this.setState({descriptionState: state});
+      console.log(state);
+      console.log(convertToRaw(this.state.descriptionState.getCurrentContent()));
+    }
   }
 
   render () {

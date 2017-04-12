@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Navigation from './../Navigation/Navigation.js';
 
 export default class Landing extends React.Component {

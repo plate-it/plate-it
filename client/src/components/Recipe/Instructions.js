@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Editor, EditorState } from 'draft-js'
 
 export default class Instructions extends React.Component {
