@@ -8,31 +8,48 @@ export default class Title extends React.Component {
       titleState: EditorState.createEmpty(),
       descriptionState: EditorState.createEmpty(),
     };
+    this.preparePayload = this.preparePayload.bind(this);
+  }
 
-    this.titleChange = (state) => {
-      this.setState({titleState: state});
-      console.log(state);
-      console.log(convertToRaw(this.state.titleState.getCurrentContent()));
-    }
-    this.descriptionChange = (state) => {
-      this.setState({descriptionState: state});
-      console.log(state);
-      console.log(convertToRaw(this.state.descriptionState.getCurrentContent()));
-    }
+  titleChange (state) {
+    this.setState({titleState: state});
+    console.log(this.state.titleState);
+  }
+
+  descriptionChange (state) {
+    this.setState({descriptionState: state});
+  }
+
+  postPayload (payload) {
+    const init = {
+      method: 'POST',
+      body: payload,
+    };
+
+    fetch('http://localhost:3000/api/recipes', init);
+  }
+
+  preparePayload () {
+    const payload = convertToRaw(this.state.titleState.getCurrentContent());
+
+    this.postPayload(payload);
   }
 
   render () {
     return (
       <div>
+        <button
+          onClick={this.preparePayload}
+        >Send Title</button>
         <Editor
           editorState={this.state.titleState}
-          onChange={this.titleChange}
+          onChange={(state) => this.titleChange(state)}
           placeholder={'Title'}
           spellCheck={true}
         />
         <Editor
           editorState={this.state.descriptionState}
-          onChange={this.descriptionChange}
+          onChange={(state) => this.descriptionChange(state)}
           placeholder={'Description'}
           spellCheck={true}
         />
