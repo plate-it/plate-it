@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Title from './Title';
+import Ingredients from './Ingredients';
+import Instructions from './Instructions';
 
 export default class Recipe extends React.Component {
   constructor(props) {
@@ -11,8 +14,12 @@ export default class Recipe extends React.Component {
 
   render () {
     return (
-      <div>Recipes</div>
-
+      <div>
+        Recipes
+        <Title />
+        <Ingredients />
+        <Instructions />
+      </div>
     )
   }
 

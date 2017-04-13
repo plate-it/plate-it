@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Navigation from './../Navigation/Navigation.js';
 
-export default class Landing extends React.Component {
+export default class Collections extends React.Component {
   constructor(props) {
     super (props);
     this.state = {
@@ -13,8 +12,7 @@ export default class Landing extends React.Component {
   render () {
     return (
       <div>
-        <Navigation />
-        <p>Check out our amazing app!</p>
+        Here, we will show the collections of books or recipes.
       </div>
     )
   }
