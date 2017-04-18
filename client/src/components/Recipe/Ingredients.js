@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Editor, EditorState } from 'draft-js'
 
-export default class Ingredients extends React.Component {
+export default class Ingredients extends Component {
   constructor (props) {
     super(props);
     this.state = {

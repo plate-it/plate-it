@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Editor, EditorState, convertFromRaw, convertToRaw } from 'draft-js';
 
-export default class Title extends React.Component {
+export default class Title extends Component {
   constructor (props) {
     super(props);
     this.state = {

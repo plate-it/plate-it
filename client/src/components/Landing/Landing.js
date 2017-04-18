@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Navigation from './../Navigation/Navigation.js';
 
-export default class Landing extends React.Component {
+export default class Landing extends Component {
   constructor(props) {
     super (props);
     this.state = {

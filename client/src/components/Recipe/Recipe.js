@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Title from './Title';
 import Ingredients from './Ingredients';
 import Instructions from './Instructions';
 
-export default class Recipe extends React.Component {
+export default class Recipe extends Component {
   constructor(props) {
     super (props);
     this.state = {
