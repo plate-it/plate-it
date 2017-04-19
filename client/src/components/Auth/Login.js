@@ -3,7 +3,6 @@ import React from 'react';
 let Login = (props) => {
   return (
     <div>
-      <h2>Log in to access Plate-It</h2>
       <button onClick={props.login}>Sign In</button>
     </div>
   );
