@@ -2,10 +2,10 @@ const Recipe = require('./recipeModel');
 
 module.exports = {
   createOneRecipe: (req, res) => {
-    const title = req.body;
+    const recipeComponents = req.body;
 
     const newRecipe = new Recipe({
-      title,
+      recipeComponents,
     });
     newRecipe.save((err, recipe) => {
       if (err) {
