@@ -21,16 +21,22 @@ export default class Title extends Component {
   }
 
   postPayload (payload) {
+
     const init = {
       method: 'POST',
       body: payload,
+      headers: {
+        'Content-Type' : 'application/json',
+      },
     };
 
     fetch('http://localhost:3000/api/recipes', init);
+
+    console.log('payload sent');
   }
 
   preparePayload () {
-    const payload = convertToRaw(this.state.titleState.getCurrentContent());
+    const payload = JSON.stringify(convertToRaw(this.state.titleState.getCurrentContent()));
 
     this.postPayload(payload);
   }
