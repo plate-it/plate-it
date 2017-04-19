@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Auth0Lock from 'auth0-lock';
-import Login from './views/Login';
-import Home from './views/Home';
+import Login from './Login.js';
+import Home from './Home.js';
+import Auth0 from '../../config/auth0.js';
 
 class Auth extends Component {
   constructor(props) {
-    console.log('*** App Props ***', props);
     super(props);
     this.state = {
       idToken: null,
@@ -16,8 +16,7 @@ class Auth extends Component {
   }
 
   componentDidMount() {
-    console.log('*** Initializing App ***');
-    this.lock = new Auth0Lock(this.props.clientId, this.props.domain, {
+    this.lock = new Auth0Lock(Auth0.CLIENT_ID, Auth0.DOMAIN, {
       auth: {
         responseType: 'token'
       }
