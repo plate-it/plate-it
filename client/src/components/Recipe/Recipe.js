@@ -59,93 +59,40 @@ export default class Recipe extends Component {
       <div>
         <h2
           className='test'
-        >Create your recipe</h2>
+        >Create your recipe
+        </h2>
         <button
           onClick={this.preparePayload}
-        >Send Recipe</button>
-        { window.innerWidth > 500 && 
+        >Send Recipe
+        </button>
         <div
           className='recipe-container'
         >
           <div
-            id='left-column'
-          >
-            <div
-              className='recipe'
-              id='title'
-            >
-              <Editor
-                editorState={this.state.titleState}
-                onChange={(state) => this.titleChange(state)}
-                placeholder={'Title'}
-                spellCheck={true}
-              />
-            </div>
-            <div
-              className='recipe'
-              id='description'
-            >
-              <Editor
-                editorState={this.state.descriptionState}
-                onChange={(state) => this.descriptionChange(state)}
-                placeholder={'Description'}
-                spellCheck={true}
-              />
-            </div>
-            <div
-              className='recipe'
-              id='instructions'
-            >
-              <h3>Instructions</h3>
-              <Editor
-                editorState={this.state.instructionState}
-                onChange={(state) => this.instructionChange(state)}
-                spellCheck={true}
-              />
-            </div>
-          </div>
-          <aside
             className='recipe'
-            id='ingredients'
+            id='title'
           >
-            <h3>Ingredients</h3>
             <Editor
-              editorState={this.state.ingredientState}
-              onChange={(state) => this.ingredientChange(state)}
+              editorState={this.state.titleState}
+              onChange={(state) => this.titleChange(state)}
+              placeholder={'Title'}
               spellCheck={true}
             />
-          </aside>
-        </div>
-        }
-        { window.innerWidth < 500 &&
-        <div
-          className='recipe-container'
-        >
+          </div>
           <div
-            id='left-column'
+            className='recipe'
+            id='description'
           >
-            <div
-              className='recipe'
-              id='title'
-            >
-              <Editor
-                editorState={this.state.titleState}
-                onChange={(state) => this.titleChange(state)}
-                placeholder={'Title'}
-                spellCheck={true}
-              />
-            </div>
-            <div
-              className='recipe'
-              id='description'
-            >
-              <Editor
-                editorState={this.state.descriptionState}
-                onChange={(state) => this.descriptionChange(state)}
-                placeholder={'Description'}
-                spellCheck={true}
-              />
-            </div>
+            <Editor
+              editorState={this.state.descriptionState}
+              onChange={(state) => this.descriptionChange(state)}
+              placeholder={'Description'}
+              spellCheck={true}
+            />
+          </div>
+          <div
+            className='ingredients-instructions-container'
+          >
             <aside
               className='recipe'
               id='ingredients'
@@ -168,9 +115,9 @@ export default class Recipe extends Component {
                 spellCheck={true}
               />
             </div>
+            
           </div>
         </div>
-        }
       </div>
     )
   }
