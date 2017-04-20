@@ -2,24 +2,60 @@
   color: blue;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+#recipe-app {
+  height: 100%;
+}
+
 .recipe-container {
-  border: solid black 1px;
   max-width: 900px;
   margin: 0 auto;
+  height: 100%;
 }
 
 .ingredients-instructions-container {
   display: flex;
   flex: 100%;
   flex-direction: row;
+  height: 100%;
+}
+
+h3 {
+  margin: 0;
+  padding: 10px 0 10px 0;
+}
+
+#description {
+  padding: 0 0 20px 0;
+  font-style: italic;
+}
+
+#title {
+  padding: 0 0 20px 0;
 }
 
 #ingredients {
   flex: 25%;
+  height: 100%;
+  border-right: dashed blue 1px;
 }
 
 #instructions {
   flex: 75%;
+  padding: 0 0 0 20px;
 }
 
 @media (max-width: 500px) {

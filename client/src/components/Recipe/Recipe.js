@@ -56,7 +56,9 @@ export default class Recipe extends Component {
 
   render () {
     return (
-      <div>
+      <div
+        id='recipe-app'
+      >
         <h2
           className='test'
         >Create your recipe
