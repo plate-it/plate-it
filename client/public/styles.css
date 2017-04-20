@@ -1,0 +1,31 @@
+.test {
+  color: blue;
+}
+
+.recipe-container {
+  display: flex;
+  flex: 100%;
+  flex-direction: row;
+}
+
+#ingredients {
+  order: 1;
+}
+
+#left-column {
+  order: 2;
+}
+
+@media all and (max-width: 500px) {
+  .recipe-container {
+    flex-direction: column;
+  }
+
+  #ingredients {
+    order: 0;
+  }
+
+  #left-column {
+    order: 0;
+  }
+}
