@@ -71,24 +71,22 @@ export default class Recipe extends Component {
           className='recipe-container'
         >
           <div
-            className='recipe'
-            id='title'
+            className='header title-header'
           >
             <Editor
               editorState={this.state.titleState}
               onChange={(state) => this.titleChange(state)}
-              placeholder={'Title'}
+              placeholder={'Title, like \'Chocolate Chip Cookies\''}
               spellCheck={true}
             />
           </div>
           <div
-            className='recipe'
-            id='description'
+            className='header description-header'
           >
             <Editor
               editorState={this.state.descriptionState}
               onChange={(state) => this.descriptionChange(state)}
-              placeholder={'Description'}
+              placeholder={'Description of your recipe'}
               spellCheck={true}
             />
           </div>
@@ -96,10 +94,11 @@ export default class Recipe extends Component {
             className='ingredients-instructions-container'
           >
             <aside
-              className='recipe'
               id='ingredients'
             >
-              <h3>Ingredients</h3>
+              <h3
+                class='subtitle3'
+              >Ingredients</h3>
               <Editor
                 editorState={this.state.ingredientState}
                 onChange={(state) => this.ingredientChange(state)}
@@ -107,10 +106,11 @@ export default class Recipe extends Component {
               />
             </aside>
             <div
-              className='recipe'
               id='instructions'
             >
-              <h3>Instructions</h3>
+              <h3
+                class='subtitle3'
+              >Instructions</h3>
               <Editor
                 editorState={this.state.instructionState}
                 onChange={(state) => this.instructionChange(state)}

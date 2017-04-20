@@ -1,7 +1,6 @@
-.test {
-  color: blue;
-}
-
+/************
+Overhead
+************/
 * {
   box-sizing: border-box;
 }
@@ -20,6 +19,23 @@ html, body {
   height: 100%;
 }
 
+/************
+Placeholder Styling
+************/
+.DraftEditor-editorContainer {
+  position: relative;
+  z-index: 1;
+}
+
+.public-DraftEditorPlaceholder-root {
+  color: #cbcbcc;
+  position: absolute;
+  z-index: 0;
+}
+
+/************
+General recipe layout
+************/
 .recipe-container {
   max-width: 900px;
   margin: 0 auto;
@@ -33,18 +49,17 @@ html, body {
   height: 100%;
 }
 
-h3 {
+.subtitle3 {
   margin: 0;
   padding: 10px 0 10px 0;
 }
 
-#description {
+.header {
   padding: 0 0 20px 0;
-  font-style: italic;
 }
 
-#title {
-  padding: 0 0 20px 0;
+.description-header {
+  font-style: italic;
 }
 
 #ingredients {
@@ -57,6 +72,10 @@ h3 {
   flex: 75%;
   padding: 0 0 0 20px;
 }
+
+/************
+Media Queries
+************/
 
 @media (max-width: 500px) {
   .ingredients-instructions-container {
