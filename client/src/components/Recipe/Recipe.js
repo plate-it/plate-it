@@ -49,8 +49,6 @@ export default class Recipe extends Component {
       instruction : convertToRaw(this.state.instructionState.getCurrentContent()),
     };
 
-    console.log(recipeComponents);
-
     const payload = JSON.stringify(recipeComponents);
 
     this.postPayload(payload);
@@ -58,37 +56,71 @@ export default class Recipe extends Component {
 
   render () {
     return (
-      <div>
-        Create your recipe
+      <div
+        id='recipe-app'
+      >
+        <h2
+          className='test'
+        >Create your recipe
+        </h2>
         <button
           onClick={this.preparePayload}
-        >Send Recipe</button>
-        <Editor
-          editorState={this.state.titleState}
-          onChange={(state) => this.titleChange(state)}
-          placeholder={'Title'}
-          spellCheck={true}
-        />
-        <Editor
-          editorState={this.state.descriptionState}
-          onChange={(state) => this.descriptionChange(state)}
-          placeholder={'Description'}
-          spellCheck={true}
-        />
-        <p>Ingredients</p>
-        <Editor
-          editorState={this.state.ingredientState}
-          onChange={(state) => this.ingredientChange(state)}
-          spellCheck={true}
-        />
-        <p>Instructions</p>
-        <Editor
-          editorState={this.state.instructionState}
-          onChange={(state) => this.instructionChange(state)}
-          spellCheck={true}
-        />
+        >Send Recipe
+        </button>
+        <div
+          className='recipe-container'
+        >
+          <div
+            className='header title-header'
+          >
+            <Editor
+              editorState={this.state.titleState}
+              onChange={(state) => this.titleChange(state)}
+              placeholder={'Title, like \'Chocolate Chip Cookies\''}
+              spellCheck={true}
+            />
+          </div>
+          <div
+            className='header description-header'
+          >
+            <Editor
+              editorState={this.state.descriptionState}
+              onChange={(state) => this.descriptionChange(state)}
+              placeholder={'Description of your recipe'}
+              spellCheck={true}
+            />
+          </div>
+          <div
+            className='ingredients-instructions-container'
+          >
+            <aside
+              id='ingredients'
+            >
+              <h3
+                class='subtitle3'
+              >Ingredients</h3>
+              <Editor
+                editorState={this.state.ingredientState}
+                onChange={(state) => this.ingredientChange(state)}
+                spellCheck={true}
+              />
+            </aside>
+            <div
+              id='instructions'
+            >
+              <h3
+                class='subtitle3'
+              >Instructions</h3>
+              <Editor
+                editorState={this.state.instructionState}
+                onChange={(state) => this.instructionChange(state)}
+                spellCheck={true}
+              />
+            </div>
+            
+          </div>
+        </div>
       </div>
     )
   }
-
 }
