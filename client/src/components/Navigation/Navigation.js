@@ -1,44 +1,25 @@
 import React, { Component } from 'react';
 import { Link, IndexLink } from 'react-router';
+import PropTypes from 'prop-types'
 import Auth from '../Auth/Auth.js';
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import { Menu, Segment } from 'semantic-ui-react';
 
 export default class Navigation extends Component {
-  constructor(props) {
-    super (props);
-    this.state = {
-      something: 'something'
-    }
-
-  }
 
   render () {
     return (
-     <Navbar inverse collapseOnSelect>
-    <Navbar.Header>
-      <Navbar.Brand>
-        <a href="/">Plate It</a>
-      </Navbar.Brand>
-      <Navbar.Toggle />
-    </Navbar.Header>
-    <Navbar.Collapse>
-      <Nav>
-        <NavItem eventKey={1}><Link to="/recipe">Recipes</Link></NavItem>
-        <NavItem eventKey={2} href="#">Link</NavItem>
-        <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-          <MenuItem eventKey={3.1} >Action</MenuItem>
-          <MenuItem eventKey={3.2}>Another action</MenuItem>
-          <MenuItem eventKey={3.3}>Something else here</MenuItem>
-          <MenuItem divider />
-          <MenuItem eventKey={3.3}>Separated link</MenuItem>
-        </NavDropdown>
-      </Nav>
-      <Nav pullRight>
-        <NavItem eventKey={1} href="#">Link Right</NavItem>
-        <NavItem eventKey={2} href="#">Link Right</NavItem>
-      </Nav>
-    </Navbar.Collapse>
-  </Navbar>
+     <Segment color="blue" inverted>
+      <Menu color="blue" inverted borderless>
+        <Menu.Item
+          as={Link}
+          to="/"
+        >
+          Plate-It
+        </Menu.Item>
+        <Menu.Item as={Link} to='/recipe' color="green" name="Create Recipe" />
+        <Menu.Item as={Link} to='/collections' color="green" name="View Collections" />
+      </Menu>
+    </Segment>
     )
   }
 
