@@ -13,7 +13,6 @@ export default class Landing extends Component {
   render () {
     return (
       <div>
-        <Navigation />
         <p>Check out our amazing app!</p>
       </div>
     )
