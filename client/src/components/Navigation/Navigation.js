@@ -13,15 +13,11 @@ class Navigation extends Component {
     return (
      <Segment color="blue" inverted>
       <Menu color="blue" inverted >
-        <Menu.Item
-          as={Link}
-          to="/"
-          active={location ==='/'}
-        >
+        <Menu.Item as={Link} to="/" active={location ==='/'}>
           Plate-It
         </Menu.Item>
-        <Menu.Item as={Link} to='/recipe' color="green" name="Create Recipe" active={location ==='/recipe'}/>
-        <Menu.Item as={Link} to='/collections' color="green" name="View Collections" active={location ==='/collections'} />
+        <Menu.Item as={Link} to='/recipe' color="green" name="Create Recipe" active={location === '/recipe'}/>
+        <Menu.Item as={Link} to='/collections' color="green" name="View Collections" active={location === '/collections'} />
       </Menu>
     </Segment>
     );
@@ -37,10 +33,3 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps)(Navigation);
-
-// <div>
-//   <IndexLink to='/' style={{padding: 10}}>Landing</IndexLink>
-//   <Auth />
-//   <Link to='/recipe' style={{padding: 10}}>Create Recipe</Link>
-//   <Link to='/collections' style={{padding: 10}}>View Collections</Link>
-// </div>
