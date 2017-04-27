@@ -1,3 +1,5 @@
+//Currently this component doesn't do anything. If we want to modularize these components more and make Navigation.js a dumb component, use this container.
+
 import { connect } from 'react-redux';
 import Navigation from './Navigation';
 

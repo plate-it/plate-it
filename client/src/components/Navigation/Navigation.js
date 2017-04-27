@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import Auth from '../Auth/Auth.js';
 import { Menu, Segment } from 'semantic-ui-react';
+import DynamicNav from './DynamicNav';
 
 class Navigation extends Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class Navigation extends Component {
         </Menu.Item>
         <Menu.Item as={Link} to='/recipe' color="green" name="Create Recipe" active={location === '/recipe'}/>
         <Menu.Item as={Link} to='/collections' color="green" name="View Collections" active={location === '/collections'} />
+        <DynamicNav />
       </Menu>
     </Segment>
     );
