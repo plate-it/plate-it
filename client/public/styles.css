@@ -9,6 +9,8 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  line-height: 1.7em;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
 }
 
 #root {
@@ -30,21 +32,70 @@ nav {
 .link-container {
   margin: 0 auto;
   height: 100%;
-  max-width: 900px;
+  max-width: 700px;
   display: flex;
   justify-content: row;
 }
 
 .link {
-  display: block;
   text-decoration: none;
   padding: 1em;
   color: tomato;
 }
 
+.nav-link {
+  display: block;
+}
+
 .link:hover {
   color: #d64b32;
 }
+
+/************
+Landing Page
+************/
+.wrapper {
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+.container {
+  border: dashed blue 1px;
+  border-radius: 10px;
+}
+
+.landing-banner {
+  text-align: center;
+  padding: 20% 10%;
+  margin: 5% 0 0 0;
+}
+
+.landing-header {
+  
+}
+
+.landing-description {
+  margin: 0;
+}
+
+.landing-features {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5% 0 0 0;
+}
+
+.feature {
+  padding: 10px;
+  width: 200px;
+  
+}
+
+.feature-text {
+  margin: 0;
+  font-size: 1.2em;
+}
+
 
 /************
 Placeholder Styling
@@ -64,7 +115,7 @@ Placeholder Styling
 General recipe layout
 ************/
 .recipe-container {
-  max-width: 900px;
+  max-width: 700px;
   margin: 0 auto;
   height: 100%;
 }
