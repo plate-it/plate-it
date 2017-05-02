@@ -20,6 +20,33 @@ html, body {
 }
 
 /************
+Nav Bar
+************/
+nav {
+  border-bottom: solid 1px #cbcbcc;
+  width: 100%;
+}
+
+.link-container {
+  margin: 0 auto;
+  height: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: row;
+}
+
+.link {
+  display: block;
+  text-decoration: none;
+  padding: 1em;
+  color: tomato;
+}
+
+.link:hover {
+  color: #d64b32;
+}
+
+/************
 Placeholder Styling
 ************/
 .DraftEditor-editorContainer {
