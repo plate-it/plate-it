@@ -88,7 +88,6 @@ Landing Page
 .feature {
   padding: 10px;
   max-width: 200px;
-  
 }
 
 .feature-headers {
@@ -99,6 +98,15 @@ Landing Page
   margin: 0;
 }
 
+.login {
+  border: 0;
+  background-color: tomato;
+  color: white;
+  border-radius: 30px;
+  font-size: 1em;
+  padding: 15px;
+  margin: 5% 0;
+}
 
 /************
 Placeholder Styling

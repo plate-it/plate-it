@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Navigation from './../Navigation/Navigation.js';
+import Auth from '../Auth/Auth.js'; 
 
 export default class Landing extends Component {
   constructor(props) {
@@ -24,6 +25,7 @@ export default class Landing extends Component {
           <h3
             className='landing-description'
           >Create and manage all of your recipes in one place.</h3>
+          <Auth />
         </section>
         <section 
           className='landing-features'
