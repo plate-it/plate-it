@@ -21,6 +21,39 @@ html, body {
   height: 100%;
 }
 
+.button {
+  border-radius: 30px;
+  font-size: 1em;
+  padding: 15px;
+}
+
+.full {
+  border: 0;
+  background-color: tomato;
+  color: white;
+}
+
+.empty {
+  border: solid 1px tomato;
+  color: tomato;
+  background-color: white;
+}
+
+.full:hover {
+  background-color: #d64b32;
+}
+
+.empty:hover {
+  color: #d64b32;
+  border-color: #d64b32;
+}
+
+.button:focus {
+  outline: none;
+}
+
+
+
 /************
 Nav Bar
 ************/
@@ -99,12 +132,6 @@ Landing Page
 }
 
 .login {
-  border: 0;
-  background-color: tomato;
-  color: white;
-  border-radius: 30px;
-  font-size: 1em;
-  padding: 15px;
   margin: 5% 0;
 }
 

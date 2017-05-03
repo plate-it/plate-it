@@ -5,7 +5,7 @@ const Login = (props) => {
     <div>
       <button 
         onClick={props.login}
-        className='login'
+        className='login button full'
       >
         Signin or Signup
       </button>
