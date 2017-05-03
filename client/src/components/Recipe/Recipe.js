@@ -73,7 +73,9 @@ export default class Recipe extends Component {
           >Save Recipe
           </button>
         </div>
-        <div>
+        <div
+          className='height'
+        >
           <div
             className='header title-header'
           >
@@ -95,7 +97,7 @@ export default class Recipe extends Component {
             />
           </div>
           <div
-            className='ingredients-instructions-container'
+            className='ingredients-instructions-container height'
           >
             <aside
               id='ingredients'
@@ -111,6 +113,7 @@ export default class Recipe extends Component {
             </aside>
             <div
               id='instructions'
+              
             >
               <h3
                 className='subtitle3'

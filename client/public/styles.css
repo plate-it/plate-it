@@ -24,6 +24,11 @@ html, body {
 .wrapper {
   margin: 0 auto;
   max-width: 700px;
+  height: 100%;
+}
+
+.height {
+  height: 100%;
 }
 
 .button {
@@ -140,6 +145,10 @@ Landing Page
 /************
 Recipe Layout
 ************/
+[data-reactroot] {
+  height: 100%;
+}
+
 .recipe-banner {
   display: flex;
   justify-content: space-between;
@@ -153,9 +162,6 @@ Recipe Layout
 
 .ingredients-instructions-container {
   display: flex;
-  flex: 100%;
-  flex-direction: row;
-  height: 100%;
 }
 
 .subtitle3 {
@@ -173,7 +179,6 @@ Recipe Layout
 
 #ingredients {
   flex: 25%;
-  height: 100%;
   border-right: dashed cornflowerblue 1px;
 }
 
@@ -199,7 +204,6 @@ Placeholder Styling
 /************
 Media Queries
 ************/
-
 @media (max-width: 750px) {
   .wrapper {
     max-width: 550px;
