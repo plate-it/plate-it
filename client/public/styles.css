@@ -21,6 +21,11 @@ html, body {
   height: 100%;
 }
 
+.wrapper {
+  margin: 0 auto;
+  max-width: 700px;
+}
+
 .button {
   border-radius: 30px;
   font-size: 1em;
@@ -52,7 +57,9 @@ html, body {
   outline: none;
 }
 
-
+.inline {
+  display: inline;
+}
 
 /************
 Nav Bar
@@ -87,11 +94,6 @@ nav {
 /************
 Landing Page
 ************/
-.wrapper {
-  margin: 0 auto;
-  max-width: 700px;
-}
-
 .container {
   border: dashed cornflowerblue 1px;
   border-radius: 10px;
@@ -136,26 +138,17 @@ Landing Page
 }
 
 /************
-Placeholder Styling
+Recipe Layout
 ************/
-.DraftEditor-editorContainer {
-  position: relative;
-  z-index: 1;
+.recipe-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 3% 0;
 }
 
-.public-DraftEditorPlaceholder-root {
-  color: #cbcbcc;
-  position: absolute;
-  z-index: 0;
-}
-
-/************
-General recipe layout
-************/
-.recipe-container {
-  max-width: 700px;
-  margin: 0 auto;
-  height: 100%;
+.recipe-banner > h2 {
+  margin: 0;
 }
 
 .ingredients-instructions-container {
@@ -190,6 +183,20 @@ General recipe layout
 }
 
 /************
+Placeholder Styling
+************/
+.DraftEditor-editorContainer {
+  position: relative;
+  z-index: 1;
+}
+
+.public-DraftEditorPlaceholder-root {
+  color: #cbcbcc;
+  position: absolute;
+  z-index: 0;
+}
+
+/************
 Media Queries
 ************/
 
@@ -215,10 +222,6 @@ Media Queries
   .ingredients-instructions-container {
     display: flex;
     flex-direction: column;
-  }
-
-  .recipe-container {
-    padding: 0 10px 0 10px;
   }
 
   #ingredients {
