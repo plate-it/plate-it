@@ -57,8 +57,7 @@ export default class Recipe extends Component {
   render () {
     return (
       <div
-        id='recipe-app'
-        className='wrapper'
+        className='wrapper height'
       >
         <div
           className='recipe-banner'

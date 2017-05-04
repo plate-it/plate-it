@@ -11,13 +11,29 @@ import Collections from './components/Collections/Collections.js';
 const store = configureStore();
 const history = syncHistoryWithStore(browserHistory, store);
 
+const requireAuth = (nextState, replace) => {
+  if (!localStorage.getItem('id_token')) {
+    replace({
+      pathname: '/'
+    });
+  };
+}
+
 const Root = () =>
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={Container}>
         <IndexRoute component={Landing} />
-        <Route path='/recipe' component={Recipe} />
-        <Route path='collections' component={Collections} />
+        <Route
+          path='/recipe'
+          component={Recipe}
+          onEnter={requireAuth}
+        />
+        <Route
+          path='collections'
+          component={Collections}
+          onEnter={requireAuth}
+        />
       </Route>
     </Router>
   </Provider>;
