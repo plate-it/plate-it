@@ -64,9 +64,22 @@ body {
 /************
 Nav Bar
 ************/
-nav {
-  border-bottom: solid 1px #cbcbcc;
+.nav {
   width: 100%;
+}
+
+.landing-nav {
+  background-color: tomato;
+}
+
+.logged-nav {
+  border-bottom: solid 1px #cbcbcc;
+}
+
+.landing-title {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 3em;
+  color: white;
 }
 
 .link-container {
