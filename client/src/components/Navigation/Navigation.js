@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import Auth from '../Auth/Auth.js';
 
-const Navigation = () => {
+const Navigation = ({ profile }) => {
   return (
     <nav>
       <div
@@ -27,6 +27,7 @@ const Navigation = () => {
         >
           View Collections
         </Link>
+        {profile ? (<div>here: {profile.name}</div>) : `Sign in!`}
       </div>
     </nav>
   );
