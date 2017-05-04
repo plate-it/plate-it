@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Navigation from './../Navigation/Navigation.js';
 import Auth from '../Auth/Auth.js'; 
 
 export default class Landing extends Component {
