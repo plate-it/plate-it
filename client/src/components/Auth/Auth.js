@@ -4,7 +4,7 @@ import Login from './Login.js';
 import Home from './Home.js';
 import Auth0 from '../../config/auth0.js';
 
-class Auth extends Component {
+export default class Auth extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,7 +15,7 @@ class Auth extends Component {
     this.logout = this.logout.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.lock = new Auth0Lock(Auth0.CLIENT_ID, Auth0.DOMAIN, {
       auth: {
         responseType: 'token'
@@ -78,16 +78,8 @@ class Auth extends Component {
   }
 
   render() {
-    if (this.state.profile) {
-      return (
-        <Home profile={this.state.profile} logout={this.logout} />
-      );
-    } else {
-      return (
-        <Login login={this.login} />
-      );
-    }
+    return (
+      <Login login={this.login} />
+    );
   }
 }
-
-export default Auth;

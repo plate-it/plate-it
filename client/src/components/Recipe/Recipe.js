@@ -57,18 +57,23 @@ export default class Recipe extends Component {
   render () {
     return (
       <div
-        id='recipe-app'
+        className='wrapper height'
       >
-        <h2
-          className='test'
-        >Create your recipe
-        </h2>
-        <button
-          onClick={this.preparePayload}
-        >Send Recipe
-        </button>
         <div
-          className='recipe-container'
+          className='recipe-banner'
+        >
+          <h2
+            className=''
+          >Create your recipe
+          </h2>
+          <button
+            className='button full'
+            onClick={this.preparePayload}
+          >Save Recipe
+          </button>
+        </div>
+        <div
+          className='height'
         >
           <div
             className='header title-header'
@@ -91,13 +96,13 @@ export default class Recipe extends Component {
             />
           </div>
           <div
-            className='ingredients-instructions-container'
+            className='ingredients-instructions-container height'
           >
             <aside
               id='ingredients'
             >
               <h3
-                class='subtitle3'
+                className='subtitle3'
               >Ingredients</h3>
               <Editor
                 editorState={this.state.ingredientState}
@@ -107,9 +112,10 @@ export default class Recipe extends Component {
             </aside>
             <div
               id='instructions'
+              
             >
               <h3
-                class='subtitle3'
+                className='subtitle3'
               >Instructions</h3>
               <Editor
                 editorState={this.state.instructionState}
@@ -117,7 +123,6 @@ export default class Recipe extends Component {
                 spellCheck={true}
               />
             </div>
-            
           </div>
         </div>
       </div>

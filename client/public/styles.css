@@ -5,48 +5,158 @@ Overhead
   box-sizing: border-box;
 }
 
-html, body {
+body {
   margin: 0;
   padding: 0;
   height: 100%;
+  line-height: 1.7em;
+  font-family: 'Montserrat', sans-serif !important;
 }
 
 #root {
   height: 100%;
 }
 
-#recipe-app {
+.wrapper {
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+.height {
   height: 100%;
 }
 
-/************
-Placeholder Styling
-************/
-.DraftEditor-editorContainer {
-  position: relative;
-  z-index: 1;
+.button {
+  border-radius: 30px;
+  font-size: 1em;
+  padding: 15px;
 }
 
-.public-DraftEditorPlaceholder-root {
-  color: #cbcbcc;
-  position: absolute;
-  z-index: 0;
+.full {
+  border: 0;
+  background-color: tomato;
+  color: white;
+}
+
+.empty {
+  border: solid 1px tomato;
+  color: tomato;
+  background-color: white;
+}
+
+.full:hover {
+  background-color: #d64b32;
+}
+
+.empty:hover {
+  color: #d64b32;
+  border-color: #d64b32;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.inline {
+  display: inline;
 }
 
 /************
-General recipe layout
+Nav Bar
 ************/
-.recipe-container {
-  max-width: 900px;
+nav {
+  border-bottom: solid 1px #cbcbcc;
+  width: 100%;
+}
+
+.link-container {
   margin: 0 auto;
   height: 100%;
+  max-width: 700px;
+  display: flex;
+  justify-content: row;
+}
+
+.link {
+  text-decoration: none;
+  padding: 1em;
+  color: tomato;
+}
+
+.nav-link {
+  display: block;
+}
+
+.link:hover {
+  color: #d64b32;
+}
+
+/************
+Landing Page
+************/
+.container {
+  border: dashed cornflowerblue 1px;
+  border-radius: 10px;
+}
+
+.landing-banner {
+  text-align: center;
+  padding: 20% 10%;
+  margin: 5% 0 0 0;
+}
+
+.landing-header {
+  
+}
+
+.landing-description {
+  margin: 0;
+}
+
+.landing-features {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5% 0 0 0;
+}
+
+.feature {
+  padding: 10px;
+  max-width: 200px;
+}
+
+.feature-headers {
+  margin: 5px 0 5px 0;
+}
+
+.feature-text {
+  margin: 0;
+}
+
+.login {
+  margin: 5% 0;
+}
+
+/************
+Recipe Layout
+************/
+[data-reactroot] {
+  height: 100%;
+}
+
+.recipe-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 3% 0;
+}
+
+.recipe-banner > h2 {
+  margin: 0;
 }
 
 .ingredients-instructions-container {
   display: flex;
-  flex: 100%;
-  flex-direction: row;
-  height: 100%;
 }
 
 .subtitle3 {
@@ -64,8 +174,8 @@ General recipe layout
 
 #ingredients {
   flex: 25%;
-  height: 100%;
-  border-right: dashed blue 1px;
+  border-right: dashed cornflowerblue 1px;
+  height: 100vh;
 }
 
 #instructions {
@@ -74,21 +184,49 @@ General recipe layout
 }
 
 /************
+Placeholder Styling
+************/
+.DraftEditor-editorContainer {
+  position: relative;
+  z-index: 1;
+}
+
+.public-DraftEditorPlaceholder-root {
+  color: #cbcbcc;
+  position: absolute;
+  z-index: 0;
+}
+
+/************
 Media Queries
 ************/
+@media (max-width: 750px) {
+  .wrapper {
+    max-width: 550px;
+  }
 
-@media (max-width: 500px) {
+  .landing-features {
+    display: block;
+    margin: 0 auto;
+    max-width: 550px;
+  }
+
+  .feature {
+    text-align: center;
+    max-width: 550px;
+    margin: 0 0 5% 0;
+  }
+}
+
+@media (max-width: 550px) {
   .ingredients-instructions-container {
     display: flex;
     flex-direction: column;
   }
 
-  .recipe-container {
-    padding: 0 10px 0 10px;
-  }
-
-  #ingredients {
+  .ingredients-instructions-container #ingredients {
     border-right: none;
+    height: auto !important;
   }
 
   #instructions {
