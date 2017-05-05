@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import Navigation from './components/Navigation/Navigation';
 import Auth0 from './config/auth0.js';
 import Auth0Lock from 'auth0-lock';
+import DynamicNav from './components/Navigation/DynamicNav.js';
+import StaticNav from './components/Navigation/StaticNav.js';
 
 class Container extends Component {
   constructor(props) {
@@ -14,14 +16,16 @@ class Container extends Component {
 
     this.logout = this.logout.bind(this);
 
+    
+  }
+
+  componentWillMount() {
+
     this.lock = new Auth0Lock(Auth0.CLIENT_ID, Auth0.DOMAIN, {
       auth: {
         responseType: 'token'
       }
     });
-  }
-
-  componentWillMount() {
     // Check if ID Token already on local storage
     const token = localStorage.getItem('id_token');
 
@@ -74,10 +78,14 @@ class Container extends Component {
   render () {
     return (
       <div>
-        <Navigation 
-          profile={this.state.profile}
-          logout={this.logout}
-        />
+        {this.state.profile ? ( 
+          <DynamicNav
+            profile={this.state.profile}
+            logout={this.logout}
+          />
+        ) : (
+          <StaticNav />
+        )}
         { this.props.children }
       </div>
     );
