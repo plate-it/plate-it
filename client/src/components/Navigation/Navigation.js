@@ -27,19 +27,34 @@ const Navigation = ({ profile, logout }) => {
             to='/collections'
             className='link nav-link'
           >
-            View Collections
+            Collections
           </Link>
-          <div>Welcome back {profile.name}</div>
-          <button
-            onClick={logout}
-            className='login button empty'
+          <div
+            className='right-profile-container'
           >
-            Log out
-          </button>
+            <img
+              src={profile.picture}
+              alt={'profile'}
+              className='profile-image'
+            />
+            <div
+              className='profile-name'
+            >
+              {profile.name}
+            </div>
+            <div>
+              <button
+                onClick={logout}
+                className='logout button empty'
+              >
+                Log out
+              </button>
+            </div>
+          </div>
         </div>
       ) : (
         <div
-          className='link-container'
+          className='title-container'
         >
           <h2
             className='landing-title'
