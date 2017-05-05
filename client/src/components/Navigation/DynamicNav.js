@@ -1,23 +1,57 @@
 import React from 'react';
-import { Menu } from 'semantic-ui-react';
 import { Link } from 'react-router';
 
-//Once we have the auth stuff running, put the links for the component into the Menu.Items like Navigation.js
-const DynamicNav = ({ loggedIn }) => {
-  if (!loggedIn) {
-    return (
-      <Menu.Menu position="right">
-        <Menu.Item>Sign Up</Menu.Item>
-        <Menu.Item>Log In</Menu.Item>
-      </Menu.Menu>
-    );
-  } else {
-    return (
-      <Menu.Menu position="right">
-        <Menu.Item>Placeholder for logged in</Menu.Item>
-      </Menu.Menu>
-    );
-  }
+const DynamicNav = ({ profile, logout }) => {
+  return (
+    <nav
+      className='nav logged-nav'
+    >
+      <div
+        className='link-container'
+      >
+        <Link
+          to='/'
+          className='link nav-link'
+        >
+          Plate-It
+        </Link>
+        <Link
+          to='/recipe'
+          className='link nav-link'
+        >
+          Create Recipe
+        </Link>
+        <Link
+          to='/collections'
+          className='link nav-link'
+        >
+          Collections
+        </Link>
+        <div
+          className='right-profile-container'
+        >
+          <img
+            src={profile.picture}
+            alt={'profile'}
+            className='profile-image'
+          />
+          <div
+            className='profile-name'
+          >
+            {profile.name}
+          </div>
+          <div>
+            <button
+              onClick={logout}
+              className='logout button empty'
+            >
+              Log out
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  )
 }
 
 export default DynamicNav;

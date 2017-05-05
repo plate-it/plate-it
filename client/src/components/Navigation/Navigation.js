@@ -1,35 +1,70 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import Auth from '../Auth/Auth.js';
 
-const Navigation = () => {
+const Navigation = ({ profile, logout }) => {
   return (
-    <nav>
-      <div
-        className='link-container'
-      >
-        <Link
-          to='/'
-          className='link nav-link'
+    <nav
+      className={profile ? 'nav logged-nav' : 'landing-nav'}
+    >
+      { profile ? (
+        <div
+          className='link-container'
         >
-          Plate-It
-        </Link>
-        <Link
-          to='/recipe'
-          className='link nav-link'
+          <Link
+            to='/'
+            className='link nav-link'
+          >
+            Plate-It
+          </Link>
+          <Link
+            to='/recipe'
+            className='link nav-link'
+          >
+            Create Recipe
+          </Link>
+          <Link
+            to='/collections'
+            className='link nav-link'
+          >
+            Collections
+          </Link>
+          <div
+            className='right-profile-container'
+          >
+            <img
+              src={profile.picture}
+              alt={'profile'}
+              className='profile-image'
+            />
+            <div
+              className='profile-name'
+            >
+              {profile.name}
+            </div>
+            <div>
+              <button
+                onClick={logout}
+                className='logout button empty'
+              >
+                Log out
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div
+          className='title-container'
         >
-          Create Recipe
-        </Link>
-        <Link
-          to='/collections'
-          className='link nav-link'
-        >
-          View Collections
-        </Link>
-      </div>
+          <h2
+            className='landing-title'
+          >
+            Plate-It
+          </h2>
+        </div>
+      )}
     </nav>
-  );
+    );
 }
 
 const mapStateToProps = (state) => {
