@@ -15,12 +15,9 @@ class Container extends Component {
     };
 
     this.logout = this.logout.bind(this);
-
-    
   }
 
   componentWillMount() {
-
     this.lock = new Auth0Lock(Auth0.CLIENT_ID, Auth0.DOMAIN, {
       auth: {
         responseType: 'token'

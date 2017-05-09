@@ -41,12 +41,13 @@ const DynamicNav = ({ profile, logout }) => {
             {profile.name}
           </div>
           <div>
-            <button
+            <Link
+              to='/'
               onClick={logout}
-              className='logout button empty'
+              className='logout button empty link'
             >
               Log out
-            </button>
+            </Link>
           </div>
         </div>
       </div>
