@@ -29,6 +29,7 @@ body {
   border-radius: 30px;
   font-size: 1em;
   padding: 15px;
+  cursor: pointer;
 }
 
 .full {

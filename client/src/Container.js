@@ -15,12 +15,9 @@ class Container extends Component {
     };
 
     this.logout = this.logout.bind(this);
-
-    
   }
 
   componentWillMount() {
-
     this.lock = new Auth0Lock(Auth0.CLIENT_ID, Auth0.DOMAIN, {
       auth: {
         responseType: 'token'
@@ -30,7 +27,6 @@ class Container extends Component {
     const token = localStorage.getItem('id_token');
 
     if (token) {
-      console.log(`token was found`);
       this._doAuthentication.call(this, {idToken: token});
     }
 
@@ -60,9 +56,14 @@ class Container extends Component {
         console.log(`Error loading profile: ${err}`);
         return;
       }
+      
       this.setState({
         profile: profile
       });
+
+      const payload = JSON.stringify(profile);
+
+      this.postPayload(payload);
     });
   }
 
@@ -73,6 +74,20 @@ class Container extends Component {
       idToken: null,
       profile: null
     });
+  }
+
+  postPayload (payload) {
+    const init = {
+      method: 'POST',
+      body: payload,
+      headers: {
+        'Content-Type' : 'application/json',
+      },
+    };
+
+    fetch('http://localhost:3000/api/user', init)
+      .then((response) => console.log(`User response ok? ${response.ok}`))
+      .catch((error) => console.log(error));
   }
 
   render () {

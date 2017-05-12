@@ -38,7 +38,9 @@ export default class Recipe extends Component {
       },
     };
 
-    fetch('http://localhost:3000/api/recipes', init);
+    fetch('http://localhost:3000/api/recipes', init)
+      .then((response) => console.log(`Recipe response ok? ${response.ok}`))
+      .catch((error) => console.log(error));
   }
 
   preparePayload () {
@@ -48,7 +50,7 @@ export default class Recipe extends Component {
       ingredients : convertToRaw(this.state.ingredientState.getCurrentContent()),
       instruction : convertToRaw(this.state.instructionState.getCurrentContent()),
     };
-
+    console.log(recipeComponents);
     const payload = JSON.stringify(recipeComponents);
 
     this.postPayload(payload);

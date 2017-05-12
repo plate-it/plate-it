@@ -1,17 +1,10 @@
-const userController = require('./users/userController.js');
-const recipeController = require('./recipes/recipeController.js');
-
+const userController = require('../db/controllers/userController.js');
+const recipeController = require('../db/controllers/recipeController.js');
 
 module.exports = (app) => {
-  app.get('/api/users', userController.getAllUsers);
-  app.get('/api/users/:username', userController.getOneUser);
-  app.post('/api/signup', userController.signup);
+  // user routes
+  app.post('/api/user', userController.findUser);
 
-  app.post('/api/users/:username/books', userController.createBook);
-  app.get('/api/users/:username/books/:bookname', userController.getOneBook);
-  // app.patch('/api/users/:username/books/:bookname', userController.updateBook);
-
-  app.post('/api/recipes', recipeController.createOneRecipe);
-  app.get('/api/recipes', recipeController.getAllRecipes);
-  app.get('/api/recipes/:recipeid', recipeController.getOneRecipe);
+  // recipe routes
+  app.post('/api/recipes', recipeController.saveRecipe);
 };
